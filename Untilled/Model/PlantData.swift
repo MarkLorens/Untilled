@@ -20,5 +20,4 @@ struct PlantData{
     var maxPrecipitation: Double
     var minUV: Int
     var maxUV: Int
-    
 }

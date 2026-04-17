@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="86px" viewBox="0 0 49 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Sunflower</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Light-Icons" transform="translate(-228, -174)">
+            <g id="Sunflower" transform="translate(228, 174)">
+                <g id="Flowers-Copy" transform="translate(3, 10.1403)">
+                    <polygon id="Rectangle" fill="#5E8949" points="18.7282893 23.0958841 25.684511 23.0958841 25.684511 39.1487034 25.684511 56.2717107 18.7282893 56.2717107 18.7282893 42.8943613"></polygon>
+                    <polygon id="Rectangle-2" fill="#624747" points="0 50.920771 44.4128002 50.920771 44.4128002 61.6226505 0 61.6226505 0 55.7366168"></polygon>
+                    <polygon id="Rectangle-2" fill="#624747" points="5.88603376 58.4120867 38.5267665 58.4120867 38.5267665 63.2279325 38.5267665 67.5086843 22.3984044 67.5086843 16.2542665 67.5086843 5.88603376 67.5086843"></polygon>
+                    <rect id="Rectangle-2" fill="#624747" x="10.7018796" y="65.9034024" width="23.0090411" height="9.09659764"></rect>
+                    <path d="M17.7721208,37.4322219 C18.6586935,37.4322219 19.3774027,38.1509312 19.3774027,39.0375039 L19.3774027,44.9407988 L19.3774027,51.3446654 C19.3774027,52.2312381 18.6586935,52.9499473 17.7721208,52.9499473 C16.8855481,52.9499473 16.1668389,52.2312381 16.1668389,51.3446654 L16.1668389,39.0375039 C16.1668389,38.1509312 16.8855481,37.4322219 17.7721208,37.4322219 Z" id="Rectangle" fill="#5E8949" transform="translate(17.7721, 45.1911) scale(-1, 1) rotate(61) translate(-17.7721, -45.1911)"></path>
+                    <path d="M27.5173087,33.3121535 C28.5516436,33.3121535 29.3901377,34.1506475 29.3901377,35.1849824 L29.3901377,40.8207302 L29.3901377,46.9570499 C29.3901377,47.9913848 28.5516436,48.8298789 27.5173087,48.8298789 C26.4829739,48.8298789 25.6444798,47.9913848 25.6444798,46.9570499 L25.6444798,35.1849824 C25.6444798,34.1506475 26.4829739,33.3121535 27.5173087,33.3121535 Z" id="Rectangle" fill="#5E8949" transform="translate(27.5173, 41.071) rotate(61) translate(-27.5173, -41.071)"></path>
+                </g>
+                <g id="Group" transform="translate(24.5, 24.5) rotate(15) translate(-24.5, -24.5)translate(7, 7)" fill="#FFD300">
+                    <ellipse id="Oval-6" cx="18" cy="12" rx="6" ry="12"></ellipse>
+                    <ellipse id="Oval-7" transform="translate(23, 17) rotate(90) translate(-23, -17)" cx="23" cy="17" rx="6" ry="12"></ellipse>
+                    <ellipse id="Oval-8" transform="translate(12, 17) rotate(90) translate(-12, -17)" cx="12" cy="17" rx="6" ry="12"></ellipse>
+                    <ellipse id="Oval-9" cx="18" cy="23" rx="6" ry="12"></ellipse>
+                </g>
+                <g id="Group-2" transform="translate(24.5, 24.5) rotate(60) translate(-24.5, -24.5)translate(7, 7)" fill="#FFD300">
+                    <ellipse id="Oval-6" cx="18" cy="12" rx="6" ry="12"></ellipse>
+                    <ellipse id="Oval-7" transform="translate(23, 17) rotate(90) translate(-23, -17)" cx="23" cy="17" rx="6" ry="12"></ellipse>
+                    <ellipse id="Oval-8" transform="translate(12, 17) rotate(90) translate(-12, -17)" cx="12" cy="17" rx="6" ry="12"></ellipse>
+                    <ellipse id="Oval-9" cx="18" cy="23" rx="6" ry="12"></ellipse>
+                </g>
+                <circle id="Oval-5" fill="#524100" cx="24.5" cy="24.5" r="6.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
