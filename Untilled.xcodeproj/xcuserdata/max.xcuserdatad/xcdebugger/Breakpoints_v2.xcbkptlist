@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FCB27A6F-40DB-44AA-955E-87B11C07AE3B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0EF5A69-B06E-479A-8945-9AC1DBB608EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../var/folders/0m/lc39q1w14p38p3gp3k2fmrs80000gn/T/swift-generated-sources/@__swiftmacro_8Untilled0030WeatherOverviewCardswift_eDAEifMX50_0_33_1BE2024E10B99DB655708D9E8FC7C25ALl7PreviewfMf_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "$s8Untilled0030WeatherOverviewCardswift_eDAEifMX50_0_33_1BE2024E10B99DB655708D9E8FC7C25ALl7PreviewfMf_15PreviewRegistryfMu_"
+            landmarkType = "37">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -27,7 +27,7 @@ struct WeatherOverviewCard: View {
                 .opacity(0.7)
                 HStack{
                     Image(systemName: "sun.max.fill")
-                    Text("\(data.UV)")
+                    Text("\(data.uv, specifier: "%.f")")
                 }
                 .opacity(0.7)
                 HStack{
@@ -49,6 +49,6 @@ struct WeatherOverviewCard: View {
 }
 
 #Preview {
-    var weatherData = WeatherData(temperature: 30.2, humidity: 70.1, precipitation: 20.0, UV: 5)
+    let weatherData = WeatherData(temperature: 30.2, humidity: 70.1, precipitation: 20.0, uv: 5)
     WeatherOverviewCard(data: weatherData)
 }
