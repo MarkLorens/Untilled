@@ -49,6 +49,6 @@ struct WeatherOverviewCard: View {
 }
 
 #Preview {
-    let weatherData = WeatherData(temperature: 30.2, humidity: 70.1, precipitation: 20.0, uv: 5)
+    let weatherData = WeatherData(temperature: 28, humidity: 70.1, precipitation: 20.0, uv: 5)
     WeatherOverviewCard(data: weatherData)
 }

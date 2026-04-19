@@ -31,12 +31,12 @@ struct MainScreen: View {
             VStack(alignment: .leading){
                 MainLogo()
                 
-                if let weather {
-                    WeatherOverviewCard(data: weather)
-                } else {
-                    ProgressView()
-                        .padding()
-                }
+//                if let weather {
+//                    WeatherOverviewCard(data: weather)
+//                } else {
+//                    ProgressView()
+//                        .padding()
+//                }
                 HStack{
                     Text("My Plants")
                         .font(.title3.bold())
@@ -52,7 +52,6 @@ struct MainScreen: View {
                     }
                 }
                 .padding()
-                
                 LazyVGrid(columns: columns, spacing: 20){
                     ForEach(plantDatas, id: \.ID){
                         plantData in
