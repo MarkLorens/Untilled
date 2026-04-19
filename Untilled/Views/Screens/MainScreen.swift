@@ -54,6 +54,7 @@ struct MainScreen: View {
                 PlantDetail(plant: plant)
             }
         }
+        
 //        .task {
 //            await loadWeather()
 //        }
