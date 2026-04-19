@@ -26,56 +26,61 @@ struct MainScreen: View {
     ]
     @State private var weather: WeatherData?
     var body: some View {
-        
-        ScrollView(.vertical, showsIndicators: false){
-            VStack(alignment: .leading){
-                MainLogo()
-                
-//                if let weather {
-//                    WeatherOverviewCard(data: weather)
-//                } else {
-//                    ProgressView()
-//                        .padding()
-//                }
-                HStack{
-                    Text("My Plants")
-                        .font(.title3.bold())
-                    Spacer()
-                    Button(action: {
-                        print("Please Add SOMETHING HERE")
-                    }) {
-                        Image(systemName: "plus")
-                            .font(.headline.weight(.semibold))
-                            .padding(7)
-                            .background(Circle().fill(.green))
-                            .foregroundColor(.white)
+        NavigationStack{
+            ScrollView(.vertical, showsIndicators: false){
+                VStack(alignment: .leading){
+                    MainLogo()
+                    
+                    //                if let weather {
+                    //                    WeatherOverviewCard(data: weather)
+                    //                } else {
+                    //                    ProgressView()
+                    //                        .padding()
+                    //                }
+                    HStack{
+                        Text("My Plants")
+                            .font(.title3.bold())
+                        Spacer()
+                        Button(action: {
+                            print("Please Add SOMETHING HERE")
+                        }) {
+                            Image(systemName: "plus")
+                                .font(.headline.weight(.semibold))
+                                .padding(7)
+                                .background(Circle().fill(.green))
+                                .foregroundColor(.white)
+                        }
                     }
-                }
-                .padding()
-                LazyVGrid(columns: columns, spacing: 20){
-                    ForEach(plantDatas, id: \.ID){
-                        plantData in
-                        PlantCard(plantData: plantData)
+                    .padding()
+                    LazyVGrid(columns: columns, spacing: 20){
+                        ForEach(plantDatas, id: \.id){ plantData in
+                            NavigationLink(value: plantData) {
+                                PlantCard(plantData: plantData)
+                            }
+                        }
                     }
                 }
             }
+            .navigationDestination(for: PlantData.self) { plant in
+                PlantDetail(plant: plant)
+            }
         }
-        .task {
-            await loadWeather()
-        }
+//        .task {
+//            await loadWeather()
+//        }
     }
 }
 
-extension MainScreen {
-    func loadWeather() async {
-        do {
-            let result = try await fetchWeather()
-            self.weather = result
-        } catch {
-            print("Failed to fetch weather:", error)
-        }
-    }
-}
+//extension MainScreen {
+//    func loadWeather() async {
+//        do {
+//            let result = try await fetchWeather()
+//            self.weather = result
+//        } catch {
+//            print("Failed to fetch weather:", error)
+//        }
+//    }
+//}
 
 #Preview {
     MainScreen()
