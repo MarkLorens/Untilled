@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PlantDetail: View {
     let plant: PlantData
+    let weather: WeatherData?
+    
     var body: some View{
         GeometryReader { proxy in
             ScrollView{
@@ -48,7 +50,7 @@ struct PlantDetail: View {
                                 Image(systemName: "thermometer.sun.fill")
                                     .font(.system(size: 20, weight: .bold))
                                 VStack(alignment: .leading){
-                                    Text("30º")
+                                    Text("\(weather?.temperature ?? 0, specifier: "%.1f")º")
                                         .font(.system(size: 40, weight: .bold))
                                     Text("Optimal: \(plant.minTemperature, specifier: "%.f")º - \(plant.maxTemperature, specifier: "%.f")º")
                                         .font(.system(size: 15, weight:.regular))
@@ -59,7 +61,7 @@ struct PlantDetail: View {
                                 Image(systemName: "humidity.fill")
                                     .font(.system(size: 20, weight: .bold))
                                 VStack(alignment: .leading){
-                                    Text("69%")
+                                    Text("\(weather?.humidity ?? 0, specifier: "%.1f")%")
                                         .font(.system(size: 40, weight: .bold))
                                     Text("Optimal: \(plant.minHumidity, specifier: "%.f")% - \(plant.maxHumidity, specifier: "%.f")%")
                                         .font(.system(size: 15, weight:.regular))
@@ -70,7 +72,7 @@ struct PlantDetail: View {
                                 Image(systemName: "cloud.rain")
                                     .font(.system(size: 20, weight: .bold))
                                 VStack(alignment: .leading){
-                                    Text("0mm")
+                                    Text("\(weather?.precipitation ?? 0, specifier: "%.1f")mm")
                                         .font(.system(size: 40, weight: .bold))
                                     Text("Optimal: \(plant.minPrecipitation, specifier: "%.f")mm - \(plant.maxPrecipitation, specifier: "%.f")mm")
                                         .font(.system(size: 15, weight:.regular))
@@ -81,9 +83,9 @@ struct PlantDetail: View {
                                 Image(systemName: "sun.max")
                                     .font(.system(size: 20, weight: .bold))
                                 VStack(alignment: .leading){
-                                    Text("6 UV")
+                                    Text("\(weather?.uv ?? 0, specifier: "%.f")UV")
                                         .font(.system(size: 40, weight: .bold))
-                                    Text("Optimal: \(plant.minUV, specifier: "%.f") UV - \(plant.maxUV, specifier: "%.f") UV")
+                                    Text("Optimal: \(plant.minUV) UV - \(plant.maxUV) UV")
                                         .font(.system(size: 15, weight:.regular))
                                         .italic()
                                 }
@@ -112,6 +114,7 @@ struct PlantDetail: View {
 }
 
 #Preview {
+    let wData = WeatherData(temperature: 28, humidity: 70.1, precipitation: 20.0, uv: 5)
     PlantDetail(
         plant: PlantData(
             plantName: "Monstera",
@@ -124,6 +127,7 @@ struct PlantDetail: View {
             maxPrecipitation: 5,
             minUV: 1,
             maxUV: 6
-        )
+        ), weather: wData
     )
+
 }

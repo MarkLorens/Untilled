@@ -56,7 +56,7 @@ struct MainScreen: View {
                 }
             }
             .navigationDestination(for: PlantWeatherData.self) { data in
-                PlantDetail(plant: data.plantData)
+                PlantDetail(plant: data.plantData, weather: data.weatherData)
             }
         }
         
