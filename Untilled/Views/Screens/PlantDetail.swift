@@ -10,6 +10,8 @@ import SwiftUI
 struct PlantDetail: View {
     let plant: PlantData
     let weather: WeatherData?
+    var dangerUp: Color = .red
+    var dangerDown: Color = .blue
     
     var body: some View{
         GeometryReader { proxy in
@@ -52,6 +54,13 @@ struct PlantDetail: View {
                                 VStack(alignment: .leading){
                                     Text("\(weather?.temperature ?? 0, specifier: "%.1f")º")
                                         .font(.system(size: 40, weight: .bold))
+                                        .foregroundStyle(
+                                            weather?.temperature ?? 0 > plant.maxTemperature
+                                            ? dangerUp
+                                            : (weather?.temperature ?? 0 < plant.minTemperature
+                                                ? dangerDown
+                                                : .white)
+                                        )
                                     Text("Optimal: \(plant.minTemperature, specifier: "%.f")º - \(plant.maxTemperature, specifier: "%.f")º")
                                         .font(.system(size: 15, weight:.regular))
                                         .italic()
@@ -63,6 +72,13 @@ struct PlantDetail: View {
                                 VStack(alignment: .leading){
                                     Text("\(weather?.humidity ?? 0, specifier: "%.1f")%")
                                         .font(.system(size: 40, weight: .bold))
+                                        .foregroundStyle(
+                                            weather?.humidity ?? 0 > plant.maxHumidity
+                                            ? dangerUp
+                                            : (weather?.humidity ?? 0 < plant.minHumidity
+                                                ? dangerDown
+                                                : .white)
+                                        )
                                     Text("Optimal: \(plant.minHumidity, specifier: "%.f")% - \(plant.maxHumidity, specifier: "%.f")%")
                                         .font(.system(size: 15, weight:.regular))
                                         .italic()
@@ -74,6 +90,13 @@ struct PlantDetail: View {
                                 VStack(alignment: .leading){
                                     Text("\(weather?.precipitation ?? 0, specifier: "%.1f")mm")
                                         .font(.system(size: 40, weight: .bold))
+                                        .foregroundStyle(
+                                            weather?.precipitation ?? 0 > plant.maxPrecipitation
+                                            ? dangerUp
+                                            : (weather?.precipitation ?? 0 < plant.minPrecipitation
+                                                ? dangerDown
+                                                : .white)
+                                        )
                                     Text("Optimal: \(plant.minPrecipitation, specifier: "%.f")mm - \(plant.maxPrecipitation, specifier: "%.f")mm")
                                         .font(.system(size: 15, weight:.regular))
                                         .italic()
