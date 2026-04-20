@@ -8,8 +8,8 @@
 import SwiftData
 import Foundation
 
-struct PlantData{
-    let ID = UUID()
+struct PlantData: Hashable{
+    let id = UUID()
     var plantName: String
     var plantType: String
     var minTemperature: Double
