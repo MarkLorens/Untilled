@@ -14,18 +14,22 @@ struct MainScreen: View {
         GridItem(.flexible())
     ]
     @State private var weather: WeatherData?
+    struct PlantWeatherData: Hashable{
+        var plantData : PlantData
+        var weatherData : WeatherData?
+    }
     var body: some View {
         NavigationStack{
             ScrollView(.vertical, showsIndicators: false){
                 VStack(alignment: .leading){
                     MainLogo()
 
-    //                if let weather {
-    //                    WeatherOverviewCard(data: weather)
-    //                } else {
-    //                    ProgressView()
-    //                        .padding()
-    //                }
+                    if let weather {
+                        WeatherOverviewCard(data: weather)
+                    } else {
+                        ProgressView()
+                            .padding()
+                    }
                     HStack{
                         Text("My Plants")
                             .font(.title3.bold())
@@ -43,34 +47,35 @@ struct MainScreen: View {
                     .padding()
                     LazyVGrid(columns: columns, spacing: 20){
                         ForEach(plantDatas, id: \.id){ plantData in
-                            NavigationLink(value: plantData) {
-                                PlantCard(plantData: plantData)
+                            let data = PlantWeatherData(plantData: plantData, weatherData: weather)
+                            NavigationLink(value: data) {
+                                PlantCard(plantData: data.plantData)
                             }
                         }
                     }
                 }
             }
-            .navigationDestination(for: PlantData.self) { plant in
-                PlantDetail(plant: plant)
+            .navigationDestination(for: PlantWeatherData.self) { data in
+                PlantDetail(plant: data.plantData)
             }
         }
         
-//        .task {
-//            await loadWeather()
-//        }
+        .task {
+            await loadWeather()
+        }
     }
 }
 
-//extension MainScreen {
-//    func loadWeather() async {
-//        do {
-//            let result = try await fetchWeather()
-//            self.weather = result
-//        } catch {
-//            print("Failed to fetch weather:", error)
-//        }
-//    }
-//}
+extension MainScreen {
+    func loadWeather() async {
+        do {
+            let result = try await fetchWeather()
+            self.weather = result
+        } catch {
+            print("Failed to fetch weather:", error)
+        }
+    }
+}
 
 #Preview {
     MainScreen()
