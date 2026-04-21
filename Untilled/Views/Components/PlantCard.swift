@@ -12,7 +12,7 @@ struct PlantCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(plantData.plantName)
+            Text(plantData.plantName).foregroundColor(.black)
             
             Image(plantData.plantType)
                 .resizable()
