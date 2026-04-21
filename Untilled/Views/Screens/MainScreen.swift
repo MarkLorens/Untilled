@@ -11,6 +11,10 @@ struct MainScreen: View {
     @State var isShowed: Bool = false
     @State var mainPlantDatas = [PlantData](plantDatas)
     
+    // Loading Screen
+    @State var isHomeRootScreen = false
+    @State var scaleAmount: CGFloat = 1
+    
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -23,51 +27,63 @@ struct MainScreen: View {
     }
     var body: some View {
         NavigationStack{
-            ScrollView(.vertical, showsIndicators: false){
-                VStack(alignment: .leading){
-                    MainLogo()
-
-                    if let weather {
-                        WeatherOverviewCard(data: weather)
-                    } else {
-                        ProgressView()
+            ZStack{
+                if isHomeRootScreen{
+                    ScrollView(.vertical, showsIndicators: false){
+                        VStack(alignment: .leading){
+                            MainLogo()
+                            
+                            if let weather {
+                                WeatherOverviewCard(data: weather)
+                            } else {
+                                ProgressView()
+                                    .padding()
+                            }
+                            HStack{
+                                Text("My Plants")
+                                    .font(.title3.bold())
+                                Spacer()
+                                Button(action: {
+                                    isShowed = true
+                                }) {
+                                    Image(systemName: "plus")
+                                        .font(.headline.weight(.semibold))
+                                        .padding(7)
+                                        .background(Circle().fill(.green))
+                                        .foregroundColor(.white)
+                                }
+                                .navigationDestination(isPresented: $isShowed){
+                                    AddPlantScreen(isPresented: $isShowed, updatedPlantData: $mainPlantDatas)
+                                }
+                            }
                             .padding()
-                    }
-                    HStack{
-                        Text("My Plants")
-                            .font(.title3.bold())
-                        Spacer()
-                        Button(action: {
-                            isShowed = true
-                        }) {
-                            Image(systemName: "plus")
-                                .font(.headline.weight(.semibold))
-                                .padding(7)
-                                .background(Circle().fill(.green))
-                                .foregroundColor(.white)
-                        }
-                        .navigationDestination(isPresented: $isShowed){
-                            AddPlantScreen(isPresented: $isShowed, updatedPlantData: $mainPlantDatas)
-                        }
-                    }
-                    .padding()
-                    LazyVGrid(columns: columns, spacing: 20){
-                        ForEach(mainPlantDatas, id: \.id){ plantData in
-                            let data = PlantWeatherData(plantData: plantData, weatherData: weather)
-                            NavigationLink(value: data) {
-                                PlantCard(plantData: data.plantData)
+                            LazyVGrid(columns: columns, spacing: 20){
+                                ForEach(mainPlantDatas, id: \.id){ plantData in
+                                    let data = PlantWeatherData(plantData: plantData, weatherData: weather)
+                                    NavigationLink(value: data) {
+                                        PlantCard(plantData: data.plantData)
+                                    }
+                                }
                             }
                         }
                     }
+                    .navigationDestination(for: PlantWeatherData.self) { data in
+                        PlantDetail(plant: data.plantData, weather: data.weatherData)
+                    }
+                }
+                else{
+                    LoadingScreen()
                 }
             }
-            .navigationDestination(for: PlantWeatherData.self) { data in
-                PlantDetail(plant: data.plantData, weather: data.weatherData)
+            .animation(.easeInOut(duration: 0.5), value: isHomeRootScreen)
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
+                    isHomeRootScreen = true;
+                }
             }
-        }
-        
-        .task {
-            await loadWeather()
+            .task {
+                await loadWeather()
+            }
         }
     }
 }
@@ -77,7 +93,8 @@ extension MainScreen {
         do {
             let result = try await fetchWeather()
             self.weather = result
-        } catch {
+        }
+        catch {
             print("Failed to fetch weather:", error)
         }
     }
