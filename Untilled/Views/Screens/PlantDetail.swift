@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct PlantDetail: View {
     let plant: PlantData
@@ -15,7 +16,7 @@ struct PlantDetail: View {
     
     var body: some View{
         GeometryReader { proxy in
-            ScrollView{
+            VStack{
                 VStack(spacing:20){
                     
                     VStack(spacing: 10) {
@@ -34,11 +35,24 @@ struct PlantDetail: View {
                                 .frame(height: 500)
                                 .ignoresSafeArea(edges: .bottom)
                         ZStack{
-                            Image(plant.plantType)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:150)
-                                .offset(y:-280)
+                            if let dataAsset = NSDataAsset(name: "\(plant.plantType)Animation"),
+                               let animation = try? LottieAnimation.from(data: dataAsset.data) {
+
+                                LottieView(animation: animation)
+                                    .playing()
+                                    .looping()
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                                    .offset(y: -280)
+
+                            } else {
+                                Image("\(plant.plantType)")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .offset(y: -280)
+                            }
+                            
                             Image(systemName: "sun.max.fill")
                                 .resizable()
                                 .scaledToFit()
