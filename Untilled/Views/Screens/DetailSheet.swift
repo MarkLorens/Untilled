@@ -12,7 +12,7 @@ struct DetailSheet: View {
     var body: some View {
         LottieView(animation: .named("plant"))
             .playing()
-            .looping() 
+            .looping()
             .resizable()
             .frame(width: 300, height: 300)
     }
