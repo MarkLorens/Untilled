@@ -5,6 +5,8 @@
 //  Created by Max on 19/04/26.
 //
 
+import Foundation
+
 var plantDatas: [PlantData] = [
     PlantData(plantName: "Monstera", plantType: "Leaves", minTemperature: randomDouble(18...25),
               maxTemperature: randomDouble(25...35),
@@ -86,4 +88,14 @@ func randomDouble(_ range: ClosedRange<Double>) -> Double {
 
 func randomInt(_ range: ClosedRange<Int>) -> Int {
     return Int.random(in: range)
+}
+
+func addPlant(plant: PlantData) {
+    plantDatas.append(plant)
+}
+
+func deletePlant(id: UUID){
+    if let index = plantDatas.firstIndex(where: { $0.id == id }) {
+        plantDatas.remove(at: index)
+    }
 }

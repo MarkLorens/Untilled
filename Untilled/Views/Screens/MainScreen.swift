@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainScreen: View {
+    @State var isShowed: Bool = false
+    @State var mainPlantDatas = [PlantData](plantDatas)
+    
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -35,7 +38,7 @@ struct MainScreen: View {
                             .font(.title3.bold())
                         Spacer()
                         Button(action: {
-                            print("Please Add SOMETHING HERE")
+                            isShowed = true
                         }) {
                             Image(systemName: "plus")
                                 .font(.headline.weight(.semibold))
@@ -43,10 +46,13 @@ struct MainScreen: View {
                                 .background(Circle().fill(.green))
                                 .foregroundColor(.white)
                         }
+                        .navigationDestination(isPresented: $isShowed){
+                            AddPlantScreen(isPresented: $isShowed, updatedPlantData: $mainPlantDatas)
+                        }
                     }
                     .padding()
                     LazyVGrid(columns: columns, spacing: 20){
-                        ForEach(plantDatas, id: \.id){ plantData in
+                        ForEach(mainPlantDatas, id: \.id){ plantData in
                             let data = PlantWeatherData(plantData: plantData, weatherData: weather)
                             NavigationLink(value: data) {
                                 PlantCard(plantData: data.plantData)
