@@ -65,7 +65,6 @@ struct PlantDetail: View {
 
                                 LottieView(animation: animation)
                                     .playing()
-                                    .looping()
                                     .resizable()
                                     .frame(width: 200, height: 200)
                                     .offset(y: -280)
