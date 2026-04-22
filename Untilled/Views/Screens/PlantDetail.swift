@@ -14,6 +14,13 @@ struct PlantDetail: View {
     var dangerUp: Color = .red
     var dangerDown: Color = .blue
     
+    var plantStatus: [String] = [
+        "Chance of dry leave edges.",
+        "High—watch for mold or mildew.",
+        "Heavy moisture, look out for soggy roots.",
+        "UV might cause fade in colors."
+    ]
+    
     var body: some View{
         GeometryReader { proxy in
             VStack{
@@ -24,8 +31,26 @@ struct PlantDetail: View {
                             .font(.system(size: 18, weight: .light))
                         Text(plant.plantName)
                             .font(.system(size: 38, weight: .regular))
-                        Text("Chance of a Dry Leave Edges")
-                            .font(.system(size: 20, weight: .regular))
+                        if weather?.temperature ?? 0 > plant.maxTemperature {
+                            Text(plantStatus[0])
+                                .font(.system(size: 20, weight: .regular))
+                        }
+                        else if weather?.humidity ?? 0 > plant.maxHumidity {
+                            Text(plantStatus[1])
+                                .font(.system(size: 20, weight: .regular))
+                        }
+                        else if weather?.precipitation ?? 0 > plant.maxPrecipitation {
+                            Text(plantStatus[2])
+                                .font(.system(size: 20, weight: .regular))
+                        }
+                        else if Int(weather!.uv) > plant.maxUV{
+                            Text(plantStatus[3])
+                                .font(.system(size: 20, weight: .regular))
+                        }
+                        else{
+                            Text("All sunshine and rainbow here!")
+                                .font(.system(size: 20, weight: .regular))
+                        }
                     }
                     .padding(.vertical, 20)
                     Spacer()
@@ -122,6 +147,13 @@ struct PlantDetail: View {
                                 VStack(alignment: .leading){
                                     Text("\(weather?.uv ?? 0, specifier: "%.f")UV")
                                         .font(.system(size: 40, weight: .bold))
+                                        .foregroundStyle(
+                                            Int(weather!.uv) > plant.maxUV
+                                            ? dangerUp
+                                            : (Int(weather!.uv) < plant.minUV
+                                                ? dangerDown
+                                                : .white)
+                                        )
                                     Text("Optimal: \(plant.minUV) UV - \(plant.maxUV) UV")
                                         .font(.system(size: 15, weight:.regular))
                                         .italic()
