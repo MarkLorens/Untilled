@@ -41,24 +41,32 @@ struct AddPlantScreen: View {
                     Divider()
                     VStack(alignment: .leading){
                         Text("Type:").padding(.vertical, 5)
-                        ScrollView(.horizontal, showsIndicators: false){
-                            HStack(spacing: 20){
-                                ForEach(plantImages, id: \.self) { image in
-                                    VStack{
-                                        Image(image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 100, height: 100)
-                                        if(selectedImage == image){
-                                            Capsule()
-                                                .frame(width: 80, height: 5)
-                                                .foregroundColor(.blue)
+                        ZStack{
+                            ScrollView(.horizontal, showsIndicators: false){
+                                HStack(spacing: 20){
+                                    ForEach(plantImages, id: \.self) { image in
+                                        VStack{
+                                            Image(image)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 100, height: 100)
+                                            if(selectedImage == image){
+                                                Capsule()
+                                                    .frame(width: 80, height: 5)
+                                                    .foregroundColor(.blue)
+                                            }
+                                        }.onTapGesture {
+                                            selectedImage = image
                                         }
-                                    }.onTapGesture {
-                                        selectedImage = image
                                     }
                                 }
                             }
+                            Image(systemName:"arrow.right.circle.fill")
+                                .resizable()
+                                .foregroundStyle(.blue)
+                                .frame(width: 30, height: 30)
+                                .offset(x:155)
+                                .opacity(1)
                         }
                     }
                 }
