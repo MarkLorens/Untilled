@@ -31,8 +31,13 @@ struct PlantDetail: View {
                             .font(.system(size: 18, weight: .light))
                         Text(plant.plantName)
                             .font(.system(size: 38, weight: .regular))
-                        MarqueeText(text: stats)
-                            .font(.system(size: 20, weight: .regular))
+                        if(plantStatus.count == 0){
+                            Text("Happy Plant.")
+                                .font(.system(size: 20, weight: .regular))
+                        } else {
+                            MarqueeText(text: stats)
+                                .font(.system(size: 20, weight: .regular))
+                        }
                     }
                     .padding(.vertical, 20)
                     Spacer()
