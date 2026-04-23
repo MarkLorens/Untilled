@@ -8,14 +8,14 @@
 import SwiftUI
 
 enum statuses: String, CaseIterable, Hashable {
-    case tooHot = "Excess heat may cause dry, crispy leaf edges."
-    case tooCold = "Low temperatures can lead to wilting or frost damage."
-    case tooHumid = "High humidity increases the risk of mold and mildew."
-    case tooDry = "Low humidity may dry out leaves and slow growth."
-    case tooRainy = "Excess moisture can lead to soggy roots and rot."
-    case tooSunny = "Intense sunlight may scorch or bleach the leaves."
-    case highUV = "Strong UV exposure can fade colors and damage foliage."
-    case lowUV = "Low light may limit growth and dull leaf color."
+    case tooHot = "Excess heat may cause dry, crispy leaf edges"
+    case tooCold = "Low temperatures can lead to wilting or frost damage"
+    case tooHumid = "High humidity increases the risk of mold and mildew"
+    case tooDry = "Low humidity may dry out leaves and slow growth"
+    case tooRainy = "Excess moisture can lead to soggy roots and rot"
+    case tooSunny = "Intense sunlight may scorch or bleach the leaves"
+    case highUV = "Strong UV exposure can fade colors and damage foliage"
+    case lowUV = "Low light may limit growth and dull leaf color"
     //case fine = "All rainbow and sunshine here!"
 }
 
