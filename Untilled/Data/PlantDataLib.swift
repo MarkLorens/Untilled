@@ -29,7 +29,7 @@ var plantDatas: [PlantData] = [
             maxHumidity: 100,
             minPrecipitation: 0,
             maxPrecipitation: 3,
-            minUV: 7,
+            minUV: 2,
             maxUV: 10
         ),
         PlantData(
