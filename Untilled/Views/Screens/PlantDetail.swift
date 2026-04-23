@@ -13,44 +13,26 @@ struct PlantDetail: View {
     let weather: WeatherData?
     var dangerUp: Color = .red
     var dangerDown: Color = .blue
+    var stats: String {
+        plantStatus.map { $0.rawValue }.joined(separator: " | ")
+    }
     
-    var plantStatus: [String] = [
-        "Chance of dry leave edges.",
-        "High—watch for mold or mildew.",
-        "Heavy moisture, look out for soggy roots.",
-        "UV might cause fade in colors."
-    ]
-    
+    var plantStatus: [statuses] {
+        FetchPlantStatus(weatherData: weather!, plantData: plant)
+    }
     var body: some View{
+
         GeometryReader { proxy in
             VStack{
                 VStack(spacing:20){
                     
-                    VStack(spacing: 10) {
+                    VStack(alignment: .center, spacing: 10) {
                         Text("MY PLANT")
                             .font(.system(size: 18, weight: .light))
                         Text(plant.plantName)
                             .font(.system(size: 38, weight: .regular))
-                        if weather?.temperature ?? 0 > plant.maxTemperature {
-                            Text(plantStatus[0])
-                                .font(.system(size: 20, weight: .regular))
-                        }
-                        else if weather?.humidity ?? 0 > plant.maxHumidity {
-                            Text(plantStatus[1])
-                                .font(.system(size: 20, weight: .regular))
-                        }
-                        else if weather?.precipitation ?? 0 > plant.maxPrecipitation {
-                            Text(plantStatus[2])
-                                .font(.system(size: 20, weight: .regular))
-                        }
-                        else if Int(weather!.uv) > plant.maxUV{
-                            Text(plantStatus[3])
-                                .font(.system(size: 20, weight: .regular))
-                        }
-                        else{
-                            Text("All sunshine and rainbow here!")
-                                .font(.system(size: 20, weight: .regular))
-                        }
+                        MarqueeText(text: stats)
+                            .font(.system(size: 20, weight: .regular))
                     }
                     .padding(.vertical, 20)
                     Spacer()
@@ -66,6 +48,8 @@ struct PlantDetail: View {
                                 LottieView(animation: animation)
                                     .playing()
                                     .resizable()
+                                    .looping()
+                                    .animationSpeed(0.5)
                                     .frame(width: 200, height: 200)
                                     .offset(y: -280)
 
