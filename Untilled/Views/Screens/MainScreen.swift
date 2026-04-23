@@ -11,6 +11,7 @@ struct MainScreen: View {
     @State var isShowed: Bool = false
     @State var mainPlantDatas = [PlantData](plantDatas)
     
+    
     // Loading Screen
     @State var isHomeRootScreen = false
     @State var scaleAmount: CGFloat = 1
@@ -61,10 +62,11 @@ struct MainScreen: View {
                                 ForEach(mainPlantDatas, id: \.id){ plantData in
                                     let data = PlantWeatherData(plantData: plantData, weatherData: weather)
                                     NavigationLink(value: data) {
-                                        PlantCard(plantData: data.plantData)
+                                        PlantCard(plantData: data.plantData, weatherData: data.weatherData!)
                                     }
                                 }
                             }
+                            .padding()
                         }
                     }
                     .navigationDestination(for: PlantWeatherData.self) { data in
