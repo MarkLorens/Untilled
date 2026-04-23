@@ -16,7 +16,7 @@ enum statuses: String, CaseIterable, Hashable {
     case tooSunny = "Intense sunlight may scorch or bleach the leaves."
     case highUV = "Strong UV exposure can fade colors and damage foliage."
     case lowUV = "Low light may limit growth and dull leaf color."
-    case fine = "All rainbow and sunshine here!"
+    //case fine = "All rainbow and sunshine here!"
 }
 
 func FetchPlantStatus(weatherData: WeatherData, plantData: PlantData) -> [statuses]{
@@ -50,9 +50,9 @@ func FetchPlantStatus(weatherData: WeatherData, plantData: PlantData) -> [status
         res.append(statuses.lowUV)
     }
     
-    if (res.isEmpty){
-        res.append(statuses.fine)
-    }
+//    if (res.isEmpty){
+//        res.append(statuses.fine)
+//    }
     
     return res;
 }

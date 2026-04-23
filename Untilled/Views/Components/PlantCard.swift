@@ -44,10 +44,17 @@ struct PlantCard: View {
                         .fill(.red)
                         .frame(width: 10, height: 10)
                 }
-                    
-                Text(plantStatus[0].rawValue)
-                    .font(.subheadline)
-                    .lineLimit(1)
+                
+                if(plantStatus.count < 1){
+                    Text("Its Fine")
+                        .font(.subheadline)
+                        .lineLimit(1)
+                }
+                else{
+                    Text(plantStatus[0].rawValue)
+                        .font(.subheadline)
+                        .lineLimit(1)
+                }
             }
             .padding(.top)
         }
