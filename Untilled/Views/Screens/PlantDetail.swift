@@ -83,6 +83,7 @@ struct PlantDetail: View {
                                 .frame(height:100)
                                 .offset(x:100, y:-370)
                                 .foregroundStyle(.yellow)
+                                .symbolEffect(.bounce.up.byLayer, options: .repeat(.continuous))
                         }
 
                         VStack(alignment: .leading, spacing: 20){
