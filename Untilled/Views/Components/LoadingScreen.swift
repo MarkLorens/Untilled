@@ -9,8 +9,7 @@ import Lottie
 
 struct LoadingScreen: View {
     var body: some View{
-        LottieView(animation: .named("loading"))
-            .animationSpeed(0.5)
+        LottieView(animation: .named("NewLoadingAnimation"))
             .playing()
             .looping()
             .resizable()
