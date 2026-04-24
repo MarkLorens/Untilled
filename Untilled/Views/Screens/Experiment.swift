@@ -10,7 +10,7 @@ import Lottie
 
 struct DetailSheet: View {
     var body: some View {
-        LottieView(animation: .named("HealthyRoseAnimation"))
+        LottieView(animation: .named("HealthyGrapeAnimation"))
             .playing()
             .looping()
             .resizable()
