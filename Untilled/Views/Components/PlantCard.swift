@@ -21,12 +21,16 @@ struct PlantCard: View {
         VStack(alignment: .leading) {
             Text(plantData.plantName).foregroundColor(.black)
             
-            Image(plantData.plantType)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .padding(.leading)
-                .padding(.top)
+            HStack{
+                Spacer()
+                Image(plantData.plantType)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .padding(.top)
+                
+                Spacer ()
+            }
             
             HStack {
                 if(plantStatus.count < 1){
@@ -66,7 +70,7 @@ struct PlantCard: View {
 }
 
 #Preview {
-    let data = PlantData(plantName: "Monstera", plantType: "Leaves", minTemperature: 20.1, maxTemperature: 25.2, minHumidity: 10.0, maxHumidity: 90.0, minPrecipitation: 0.0, maxPrecipitation: 10.0, minUV: 1, maxUV: 6)
+    let data = PlantData(plantName: "Monstera", plantType: "Monstera", minTemperature: 20.1, maxTemperature: 25.2, minHumidity: 10.0, maxHumidity: 90.0, minPrecipitation: 0.0, maxPrecipitation: 10.0, minUV: 1, maxUV: 6)
     let weatherData = WeatherData(temperature: 28, humidity: 70.1, precipitation: 20.0, uv: 5)
     
     PlantCard(plantData: data, weatherData: weatherData)

@@ -10,7 +10,7 @@ import Foundation
 var plantDatas: [PlantData] = [
         PlantData(
             plantName: "Monstera",
-            plantType: "Leaves",
+            plantType: "Monstera",
             minTemperature: 18,
             maxTemperature: 30,
             minHumidity: 60,
