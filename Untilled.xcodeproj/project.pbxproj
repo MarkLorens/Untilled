@@ -7,10 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50009DD92F9F305E00AAEFB3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50009DD82F9F305E00AAEFB3 /* WidgetKit.framework */; };
+		50009DDB2F9F305E00AAEFB3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50009DDA2F9F305E00AAEFB3 /* SwiftUI.framework */; };
+		50009DE82F9F305F00AAEFB3 /* UntilledWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50009DD62F9F305E00AAEFB3 /* UntilledWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7A6613722F961ED90031B7B8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7A6613712F961ED90031B7B8 /* Lottie */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		50009DE62F9F305F00AAEFB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5076533A2F920E3500FA1BCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50009DD52F9F305E00AAEFB3;
+			remoteInfo = UntilledWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		50009DED2F9F305F00AAEFB3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				50009DE82F9F305F00AAEFB3 /* UntilledWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7A6613762F9747F90031B7B8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -24,18 +48,59 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		50009DD62F9F305E00AAEFB3 /* UntilledWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UntilledWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		50009DD82F9F305E00AAEFB3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		50009DDA2F9F305E00AAEFB3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		50009DEF2F9F30B400AAEFB3 /* UntilledWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UntilledWidgetExtension.entitlements; sourceTree = "<group>"; };
 		507653422F920E3500FA1BCF /* Untilled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Untilled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		50009DE92F9F305F00AAEFB3 /* Exceptions for "UntilledWidget" folder in "UntilledWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 50009DD52F9F305E00AAEFB3 /* UntilledWidgetExtension */;
+		};
+		50009DF62F9F3F4A00AAEFB3 /* Exceptions for "Untilled" folder in "UntilledWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = 50009DD52F9F305E00AAEFB3 /* UntilledWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		50009DDC2F9F305E00AAEFB3 /* UntilledWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				50009DE92F9F305F00AAEFB3 /* Exceptions for "UntilledWidget" folder in "UntilledWidgetExtension" target */,
+			);
+			path = UntilledWidget;
+			sourceTree = "<group>";
+		};
 		507653442F920E3500FA1BCF /* Untilled */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				50009DF62F9F3F4A00AAEFB3 /* Exceptions for "Untilled" folder in "UntilledWidgetExtension" target */,
+			);
 			path = Untilled;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50009DD32F9F305E00AAEFB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50009DDB2F9F305E00AAEFB3 /* SwiftUI.framework in Frameworks */,
+				50009DD92F9F305E00AAEFB3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5076533F2F920E3500FA1BCF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,10 +112,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50009DD72F9F305E00AAEFB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50009DD82F9F305E00AAEFB3 /* WidgetKit.framework */,
+				50009DDA2F9F305E00AAEFB3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		507653392F920E3500FA1BCF = {
 			isa = PBXGroup;
 			children = (
+				50009DEF2F9F30B400AAEFB3 /* UntilledWidgetExtension.entitlements */,
 				507653442F920E3500FA1BCF /* Untilled */,
+				50009DDC2F9F305E00AAEFB3 /* UntilledWidget */,
+				50009DD72F9F305E00AAEFB3 /* Frameworks */,
 				507653432F920E3500FA1BCF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				507653422F920E3500FA1BCF /* Untilled.app */,
+				50009DD62F9F305E00AAEFB3 /* UntilledWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +144,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		50009DD52F9F305E00AAEFB3 /* UntilledWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50009DEA2F9F305F00AAEFB3 /* Build configuration list for PBXNativeTarget "UntilledWidgetExtension" */;
+			buildPhases = (
+				50009DD22F9F305E00AAEFB3 /* Sources */,
+				50009DD32F9F305E00AAEFB3 /* Frameworks */,
+				50009DD42F9F305E00AAEFB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				50009DDC2F9F305E00AAEFB3 /* UntilledWidget */,
+			);
+			name = UntilledWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = UntilledWidgetExtension;
+			productReference = 50009DD62F9F305E00AAEFB3 /* UntilledWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		507653412F920E3500FA1BCF /* Untilled */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5076534D2F920E3600FA1BCF /* Build configuration list for PBXNativeTarget "Untilled" */;
@@ -74,10 +174,12 @@
 				5076533F2F920E3500FA1BCF /* Frameworks */,
 				507653402F920E3500FA1BCF /* Resources */,
 				7A6613762F9747F90031B7B8 /* Embed Frameworks */,
+				50009DED2F9F305F00AAEFB3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				50009DE72F9F305F00AAEFB3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				507653442F920E3500FA1BCF /* Untilled */,
@@ -100,6 +202,9 @@
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
+					50009DD52F9F305E00AAEFB3 = {
+						CreatedOnToolsVersion = 26.3;
+					};
 					507653412F920E3500FA1BCF = {
 						CreatedOnToolsVersion = 26.3;
 					};
@@ -123,11 +228,19 @@
 			projectRoot = "";
 			targets = (
 				507653412F920E3500FA1BCF /* Untilled */,
+				50009DD52F9F305E00AAEFB3 /* UntilledWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50009DD42F9F305E00AAEFB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		507653402F920E3500FA1BCF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +251,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50009DD22F9F305E00AAEFB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5076533E2F920E3500FA1BCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,7 +267,77 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		50009DE72F9F305F00AAEFB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50009DD52F9F305E00AAEFB3 /* UntilledWidgetExtension */;
+			targetProxy = 50009DE62F9F305F00AAEFB3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		50009DEB2F9F305F00AAEFB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = UntilledWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BYX72AR3JC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UntilledWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UntilledWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Weather.com.Untilled.UntilledWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50009DEC2F9F305F00AAEFB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = UntilledWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BYX72AR3JC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UntilledWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UntilledWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Weather.com.Untilled.UntilledWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5076534B2F920E3600FA1BCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,9 +464,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Untilled/Untilled.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VZU989UTV5;
+				DEVELOPMENT_TEAM = BYX72AR3JC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -289,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Untilled;
+				PRODUCT_BUNDLE_IDENTIFIER = Weather.com.Untilled;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -306,9 +497,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Untilled/Untilled.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VZU989UTV5;
+				DEVELOPMENT_TEAM = BYX72AR3JC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -321,7 +513,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Untilled;
+				PRODUCT_BUNDLE_IDENTIFIER = Weather.com.Untilled;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -336,6 +528,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50009DEA2F9F305F00AAEFB3 /* Build configuration list for PBXNativeTarget "UntilledWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50009DEB2F9F305F00AAEFB3 /* Debug */,
+				50009DEC2F9F305F00AAEFB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5076533D2F920E3500FA1BCF /* Build configuration list for PBXProject "Untilled" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

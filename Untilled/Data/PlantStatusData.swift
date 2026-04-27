@@ -56,3 +56,41 @@ func FetchPlantStatus(weatherData: WeatherData, plantData: PlantData) -> [status
     
     return res;
 }
+
+func FetchWeatherStatus(weatherData: WeatherData) -> [String]{
+    var res: [String] = []
+    
+    if(weatherData.temperature > 30){
+        res.append("hot")
+    }
+    else if (weatherData.temperature < 10){
+        res.append("cold")
+    }
+    
+    if(weatherData.humidity > 60){
+        res.append("humid")
+    }
+    else if (weatherData.humidity < 40){
+        res.append("dry")
+    }
+    
+    if(weatherData.precipitation > 1){
+        res.append("rainy")
+    }
+    else if (weatherData.precipitation < 15){
+        res.append("sunny")
+    }
+    
+    if(Int(weatherData.uv) > 5){
+        res.append("uvhigh")
+    }
+    else if (Int(weatherData.uv) < 1){
+        res.append("uvlow")
+    }
+    
+//    if (res.isEmpty){
+//        res.append(statuses.fine)
+//    }
+    
+    return res;
+}
