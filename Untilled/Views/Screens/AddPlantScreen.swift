@@ -184,16 +184,19 @@ struct AddPlantScreen: View {
                 plantObject.maxPrecipitation = maxPrec
                 plantObject.minPrecipitation = minPrec
                 plantObject.maxUV = Int(maxUv)
-                plantObject.maxUV = Int(minUv)
+                plantObject.minUV = Int(minUv)
                 
                 addPlant(plant: plantObject)
                 
                 updatedPlantData = plantDatas
                 
-                print("Add Plant Successfull with:")
-                print("\(plantObject)")
+                print("UV Max : \(maxUv)")
+                print("UV Min: \(minUv)")
                 
-                print("plant datas:\n \(plantDatas)")
+//                print("Add Plant Successfull with:")
+//                print("\(plantObject)")
+                
+                //print("plant datas:\n \(plantDatas)")
                 isPresented = false
                 
             }){

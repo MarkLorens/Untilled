@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct MainScreen: View {
     @State var isShowed: Bool = false
@@ -95,6 +96,15 @@ extension MainScreen {
         do {
             let result = try await fetchWeather()
             self.weather = result
+            
+            let weatherStatuses = FetchWeatherStatus(weatherData: weather!)
+            
+            let rawStatus = weatherStatuses.map { $0 }
+            let sharedDefaults = UserDefaults(suiteName: "group.Weather.com.Untilled")
+            sharedDefaults?.set(rawStatus, forKey: "weatherStatuses")
+            
+            WidgetCenter.shared.reloadAllTimelines()
+            
         }
         catch {
             print("Failed to fetch weather:", error)
